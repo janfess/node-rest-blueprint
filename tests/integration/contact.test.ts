@@ -45,5 +45,17 @@ describe('Contact API Integration Tests', () => {
 
       expect(response.status).toBe(422);
     });
+
+    it('should return 422 if the privacy policy field is missing', async () => {
+      const response = await request(app)
+        .post('/api/contact')
+        .send({
+          name: 'John Doe',
+          email: 'john@example.com',
+          message: 'This is a test message'
+        });
+
+      expect(response.status).toBe(422);
+    });
   });
 });

@@ -11,7 +11,7 @@ router.post(
     body('name').trim().escape().notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Valid email is required').normalizeEmail(),
     body('message').trim().escape().notEmpty().withMessage('Message is required'),
-    body('acceptPolicies').isBoolean().withMessage('Privacy policy must be accepted')
+    body('acceptPolicies').custom((value) => value === true).withMessage('Privacy policy must be accepted')
   ],
   validate,
   contactController.handleInquiry
