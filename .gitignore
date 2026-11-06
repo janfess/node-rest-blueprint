@@ -1,0 +1,12 @@
+# Dependencies and build output are reproduced by `npm ci` and `npm run build`
+node_modules/
+dist/
+coverage/
+
+# Local environment (keep .env.example tracked)
+.env
+.env.*
+!.env.example
+
+*.log
+.DS_Store
